@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Demo CDK Application"
+Transform: "AWS::Serverless-2016-10-31"
+
+Resources:
+  cdk-bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: cdk-demo-bucket19970703
+      VersioningConfiguration:
+        Status: Enabled
+    UpdateReplacePolicy: Retain
+    DeletionPolicy: Retain
