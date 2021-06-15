@@ -1,0 +1,24 @@
+version: 0.1
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - apt update
+      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
+      - unzip ./sonar-scanner-cli-3.3.0.1492-linux.zip
+      - export PATH="$PATH:./sonar-scanner-3.3.0.1492-linux/bin/"
+  pre_build:
+    commands:
+      - sonar-scanner
+      - sleep 5
+  build:
+    commands:
+      - echo Build started on `date`
+  post_build:
+    commands:
+      - echo Build completed on `date`
+# artifacts:
+#   files:
+#     - target/cdk.zip
